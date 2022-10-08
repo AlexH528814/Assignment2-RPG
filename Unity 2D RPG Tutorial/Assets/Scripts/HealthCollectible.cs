@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
 {
-  
+  public ParticleSystem healthEffect;
     private void OnTriggerEnter2D(Collider2D other)
     {
         RubyController controller = other.GetComponent<RubyController>();
@@ -15,6 +15,8 @@ public class HealthCollectible : MonoBehaviour
             {
                 controller.ChangeHealth(1);
                 Destroy(gameObject);
+                healthEffect.Play();
+
             }
         }
         
